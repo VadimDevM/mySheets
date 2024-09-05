@@ -1,0 +1,7 @@
+{
+  "name": "mysheets",
+  "version": "0.0.1",
+  "dependencies": {
+    "typescript": "^5.5.4"
+  }
+}
