@@ -2,7 +2,7 @@ import { ParserOptions, Test, Parser, ParserState } from "../types";
 import { intoIter, ParserError, testChar } from "../helpers";
 
 /**
- * Parsing generator index.
+ * Parsing generator tag.
  */
 export function tag<T, R>(template: Iterable<Test>, options?: ParserOptions): Parser<T, R> {
     return function* (source, prev) {

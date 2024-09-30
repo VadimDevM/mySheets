@@ -15,9 +15,9 @@ export type Parser<T = unknown, R = unknown> = (iterable: Iterable<T>, prev?: Pa
 
 type TestFunc<T> = (value: T) => boolean;
 
-export type Test = RegExp | string | TestFunc<string>;
+export type Test<T = string> = RegExp | T | TestFunc<T>;
 
 export interface ParserOptions<T = unknown> {
-    token: string;
+    token?: string;
     tokenValue?(unknown): T;
 }
