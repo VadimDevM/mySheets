@@ -1,4 +1,4 @@
-interface ParserToken<T> {
+export interface ParserToken<T> {
     type: string;
     value: T;
 }
