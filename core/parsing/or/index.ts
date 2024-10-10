@@ -2,6 +2,9 @@ import {Parser, ParserOptions, ParserState, ParserToken} from "../types";
 import {intoIter, ParserError} from "../helpers";
 import {intoBuffIter} from "../helpers/intoBuffIter";
 
+/**
+ * Parser combinator or.
+ */
 function or<T = unknown, R = unknown>(...parsers: Parser[]): Parser<T | T[], R[]>;
 function or<T = unknown, R = unknown>(optsOrParser: ParserOptions | Parser, ...parsers: Parser[]): Parser<T | T[], R[]>;
 export function or<T = unknown, R = unknown>(optsOrParser: ParserOptions | Parser, ...parsers: Parser[]): Parser<T, R> {

@@ -5,28 +5,28 @@ import {seq} from "./";
 
 describe('Parser combinator SEQ', () => {
     test('parse XML tag', () => {
-        expect(seq(
+        expect(JSON.stringify(seq(
             tag('<'),
             take(/\w/),
             tag('>')
-        )('<root>').next())
+        )('<root>').next()))
             .toEqual(
-                {
-                    value: [
-                        {
-                            type: 'SEQ',
-                            value: [
-                                {type: 'TAG', value: '<'},
-                                {type: 'TAKE', value: 'root'},
-                                {type: 'TAG', value: '>'}
-                            ]
+                JSON.stringify({
+                        value: [
+                            {
+                                type: 'SEQ',
+                                value: [
+                                    {type: 'TAG', value: '<'},
+                                    {type: 'TAKE', value: 'root'},
+                                    {type: 'TAG', value: '>'}
+                                ]
 
-                        },
-                        ''[Symbol.iterator]()
-                    ],
-                    done: true
-                }
-            );
+                            },
+                            ''[Symbol.iterator]()
+                        ],
+                        done: true
+                    }
+                ));
     });
 
     test('parse XML tag with options', () => {
@@ -53,28 +53,25 @@ describe('Parser combinator SEQ', () => {
     });
 
     test('parse function key words', () => {
-        expect(
-            seq(
+        expect(JSON.stringify(seq(
                 tag('function '),
                 take(/\w/),
                 tag('()')
             )('function sum()').next()
-        )
-            .toEqual(
-                {
-                    value: [
-                        {
-                            type: 'SEQ',
-                            value: [
-                                {type: 'TAG', value: 'function '},
-                                {type: 'TAKE', value: 'sum'},
-                                {type: 'TAG', value: '()'}
-                            ]
-                        },
-                        ''[Symbol.iterator]()
-                    ],
-                    done: true
-                }
-            )
+        ))
+            .toEqual(JSON.stringify({
+                value: [
+                    {
+                        type: 'SEQ',
+                        value: [
+                            {type: 'TAG', value: 'function '},
+                            {type: 'TAKE', value: 'sum'},
+                            {type: 'TAG', value: '()'}
+                        ]
+                    },
+                    ''[Symbol.iterator]()
+                ],
+                done: true
+            }))
     })
 });

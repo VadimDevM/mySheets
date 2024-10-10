@@ -1,5 +1,6 @@
 import {Parser, ParserOptions, ParserState, Test} from "../types";
 import {intoIter, ParserError, testChar} from "../helpers";
+import {iterSeq} from "../helpers/iterSeq";
 
 /**
  * Parsing generator take.
@@ -75,6 +76,6 @@ export function take<T, R>(test: Test<T>, options?: TakeOptions): Parser<T, R> {
             value
         };
 
-        return [token, buffer.length > 0 ? intoIter([...buffer, ...iterOnSrc]) : iterOnSrc];
+        return [token, buffer.length > 0 ? iterSeq(buffer, iterOnSrc) : iterOnSrc];
     }
 }
