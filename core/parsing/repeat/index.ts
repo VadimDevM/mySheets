@@ -11,7 +11,7 @@ interface RepeatOptions extends ParserOptions {
 /**
  * Parser combinator repeat.
  */
-export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Parser<T | T[], R> {
+export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Parser<T | T[], R[]> {
     const min = options?.min ?? 1, max = options?.max ?? Infinity;
 
     return function* (source, prev) {
@@ -21,15 +21,16 @@ export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Par
             yields = [];
 
         const outerBuffer = [];
+        let data;
 
         parserRepeat: while (true) {
             let buffer = count >= min ? [] : outerBuffer;
-            let data;
             const parsing = parser(intoBuffIter(iterOnSrc, buffer), prev);
 
 
             while (true) {
                 if (count >= max) {
+                    yield* yields;
                     break parserRepeat;
                 }
 
@@ -38,9 +39,15 @@ export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Par
 
                     if (chunk.done) {
                         prev = chunk.value[0];
-                        value.push(prev);
                         iterOnSrc = intoIter(chunk.value[1]);
+                        value.push(prev);
                         count++;
+
+                        if (count >= min) {
+                            yield* yields;
+                            yields.splice(0, yields.length);
+                        }
+
                         break;
 
                     } else {
@@ -58,6 +65,10 @@ export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Par
                     }
 
                 } catch (err) {
+                    if (count < min) {
+                        throw err;
+                    }
+
                     if (buffer.length > 0) {
                         iterSeq(buffer, iterOnSrc);
                     }
@@ -66,12 +77,6 @@ export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Par
                 }
             }
         }
-
-        if (count < min) {
-            throw new ParserError(`Invalid value (Incorrect count. Should be [${options.min}] matches for ${options.token ?? 'REPEAT'})`);
-        }
-
-        yield* yields;
 
         if (options?.token) {
             yield {
