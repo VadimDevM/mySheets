@@ -1,8 +1,8 @@
 import {test, describe, expect} from '@jest/globals';
-import {or} from './';
-import {tag} from "../tag";
+import {or} from './index';
+import {tag} from "../../parser_generators/tag";
 import {seq} from "../seq";
-import {take} from "../take";
+import {take} from "../../parser_generators/take";
 
 describe('Parser combinator or', () => {
     test('parsing boolean value', () => {

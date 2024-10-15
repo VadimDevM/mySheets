@@ -1,5 +1,5 @@
-import { ParserOptions, Test, Parser, ParserState } from "../types";
-import { intoIter, ParserError, testChar } from "../helpers";
+import { ParserOptions, Test, Parser, ParserState } from "../../types";
+import { intoIter, ParserError, testChar } from "../../helpers";
 
 /**
  * Parsing generator tag.

@@ -1,6 +1,6 @@
-import {Parser, ParserOptions, ParserState, ParserToken} from "../types";
-import {intoIter, ParserError} from "../helpers";
-import {intoBuffIter} from "../helpers/intoBuffIter";
+import {Parser, ParserOptions, ParserState, ParserToken} from "../../types";
+import {intoIter, ParserError} from "../../helpers";
+import {intoBuffIter} from "../../helpers/intoBuffIter";
 
 /**
  * Parser combinator or.

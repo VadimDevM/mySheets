@@ -1,7 +1,7 @@
 import {test, describe, expect} from '@jest/globals';
 import {seq} from "../seq";
-import {tag} from "../tag";
-import {take} from "../take";
+import {tag} from "../../parser_generators/tag";
+import {take} from "../../parser_generators/take";
 import {opt} from "./index";
 
 const xmlTag = seq(

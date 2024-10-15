@@ -1,8 +1,8 @@
 import {test, describe, expect} from '@jest/globals';
-import {repeat} from './';
+import {repeat} from './index';
 import {seq} from "../seq";
-import {take} from "../take";
-import {tag} from "../tag";
+import {take} from "../../parser_generators/take";
+import {tag} from "../../parser_generators/tag";
 import {or} from "../or";
 
 const bbTag = seq(

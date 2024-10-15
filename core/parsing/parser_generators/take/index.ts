@@ -1,6 +1,6 @@
-import {Parser, ParserOptions, ParserState, Test} from "../types";
-import {intoIter, ParserError, testChar} from "../helpers";
-import {iterSeq} from "../helpers/iterSeq";
+import {Parser, ParserOptions, ParserState, Test} from "../../types";
+import {intoIter, ParserError, testChar} from "../../helpers";
+import {iterSeq} from "../../helpers/iterSeq";
 
 /**
  * Parsing generator take.

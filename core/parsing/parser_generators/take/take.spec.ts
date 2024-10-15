@@ -1,8 +1,8 @@
 import {test, describe, expect} from '@jest/globals';
-import {take} from './';
-import {ParserState} from "../types";
-import {iterSeq} from "../helpers/iterSeq";
-import {intoIter} from "../helpers";
+import {take} from './index';
+import {ParserState} from "../../types";
+import {iterSeq} from "../../helpers/iterSeq";
+import {intoIter} from "../../helpers";
 
 describe('Parser generator take', () => {
     test('take for numbers', () => {

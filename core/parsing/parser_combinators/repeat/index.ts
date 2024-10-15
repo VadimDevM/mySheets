@@ -1,7 +1,7 @@
-import {Parser, ParserOptions, ParserState} from "../types";
-import {intoIter, ParserError} from "../helpers";
-import {intoBuffIter} from "../helpers/intoBuffIter";
-import {iterSeq} from "../helpers/iterSeq";
+import {Parser, ParserOptions, ParserState} from "../../types";
+import {intoIter, ParserError} from "../../helpers";
+import {intoBuffIter} from "../../helpers/intoBuffIter";
+import {iterSeq} from "../../helpers/iterSeq";
 
 interface RepeatOptions extends ParserOptions {
     min?: number;

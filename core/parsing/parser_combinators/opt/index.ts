@@ -1,4 +1,4 @@
-import {Parser, ParserOptions} from "../types";
+import {Parser, ParserOptions} from "../../types";
 import {repeat} from "../repeat";
 
 /**

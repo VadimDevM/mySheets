@@ -1,7 +1,7 @@
 import {test, describe, expect} from '@jest/globals';
-import {tag} from "../tag";
-import {take} from "../take";
-import {seq} from "./";
+import {tag} from "../../parser_generators/tag";
+import {take} from "../../parser_generators/take";
+import {seq} from "./index";
 
 describe('Parser combinator SEQ', () => {
     test('parse XML tag', () => {

@@ -1,5 +1,5 @@
-import {Parser, ParserOptions, ParserState, ParserValue} from "../types";
-import {intoIter} from "../helpers";
+import {Parser, ParserOptions, ParserState, ParserValue} from "../../types";
+import {intoIter} from "../../helpers";
 
 /**
  * Parser combinator seq.

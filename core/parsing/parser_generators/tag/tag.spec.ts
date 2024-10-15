@@ -1,5 +1,5 @@
 import { describe, test, expect } from '@jest/globals';
-import { tag } from './';
+import { tag } from './index';
 
 describe('Parser tag', () => {
     test('Parsing by string', () => {
