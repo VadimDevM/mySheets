@@ -1,0 +1,1 @@
+export const signPriorities = { '+': 1, '-': 1, '*': 2, '/': 2 };

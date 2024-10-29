@@ -1,0 +1,9 @@
+export enum TokenTypes {
+    SIGN_PLUS = 'SIGN_PLUS',
+    SIGN_MINUS = 'SIGN_MINUS',
+    SIGN_MULTI = 'SIGN_MULTI',
+    SIGN_DIVIDED = 'SIGN_DIVIDED',
+    NUM = 'NUM',
+    LINK = 'LINK',
+    EXPECT_NEW_DATA = 'EXPECT_NEW_DATA'
+}

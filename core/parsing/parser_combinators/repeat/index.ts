@@ -70,7 +70,7 @@ export function repeat<T, R>(parser: Parser<T, R>, options?: RepeatOptions): Par
                     }
 
                     if (buffer.length > 0) {
-                        iterSeq(buffer, iterOnSrc);
+                        iterOnSrc = iterSeq(buffer, iterOnSrc);
                     }
 
                     break parserRepeat;
